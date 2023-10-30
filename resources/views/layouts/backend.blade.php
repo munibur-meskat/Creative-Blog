@@ -17,6 +17,7 @@
 
 	<link href="{{ asset('assets/backend/css/plugins.bundle.css') }}" rel="stylesheet" type="text/css"/>
 	<link href="{{ asset('assets/backend/css/style.bundle.css') }}" rel="stylesheet" type="text/css"/>
+	{{-- <link href="{{ asset('assets/backend/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/> --}}
 
 </head>
 	<!--end::Head-->
@@ -27,6 +28,7 @@
 		<div class="d-flex flex-column flex-root">
 			<!--begin::Page-->
 		<div class="page d-flex flex-row flex-column-fluid">
+
 			<!--begin::Aside-->
 			<div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
 				<!--begin::Brand-->
@@ -53,8 +55,8 @@
 			</div>
 			<!--end::Aside toggler-->
 		</div>
-					<!--end::Brand-->
-					<!--begin::Aside menu-->
+		<!--end::Brand-->
+		<!--begin::Aside menu-->
 <div class="aside-menu flex-column-fluid">
 	<!--begin::Aside Menu-->
 	<div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0">
@@ -120,6 +122,15 @@
 						<span class="menu-title">Categories</span>
 					</a>
 				</div>
+
+				<div class="menu-item">
+					<a class="menu-link" href="{{ route('dashboard.sub_category_create') }}">
+						<span class="menu-bullet">
+							<span class="bullet bullet-dot"></span>
+						</span>
+						<span class="menu-title">Sub-Category</span>
+					</a>
+				</div>
 			</div>
 		</div>
 
@@ -153,59 +164,45 @@
 
 </div>
 </div>
-	<!--end::Menu-->
 </div>
 </div>
-<!--end::Aside menu-->
 </div>
 <!--end::Aside-->
-<!--begin::Wrapper-->
+
 <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
 <!--begin::Header-->
 <div id="kt_header" style="" class="header align-items-stretch">
-	<!--begin::Container-->
 	<div class="container-fluid d-flex align-items-stretch justify-content-between">
 
 <!--begin::Mobile logo-->
-
 <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
 	<a href="index.html" class="d-lg-none">
 		<img alt="Logo" src="{{ asset('assets/backend/images/logo-3.svg') }}" class="h-30px" />
 	</a>
 </div>
-
 <!--end::Mobile logo-->
-
 <!--begin::Wrapper-->
 <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
 	<!--begin::Navbar-->
 	<div class="d-flex align-items-stretch" id="kt_header_nav">
 		<!--begin::Menu wrapper-->
 		<div class="header-menu align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_header_menu_mobile_toggle" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
-
-			<!--begin::Menu-->
 			<div class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch" id="#kt_header_menu" data-kt-menu="true">
 				<div class="menu-item me-lg-1">
 					<a class="menu-link active py-3" href="#">
 						<span class="menu-title">Dashboard</span>
 					</a>
 				</div>
-
 			</div>
-			<!--end::Menu-->
 		</div>
-		<!--end::Menu wrapper-->
 	</div>
 			<!--end::Navbar-->
-				<!--begin::Topbar-->
+			<!--begin::Topbar-->
 <div class="d-flex align-items-stretch flex-shrink-0">
 <!--begin::Toolbar wrapper-->
 <div class="d-flex align-items-stretch flex-shrink-0">
-
-
 <!--begin::User-->
 <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
-	<!--begin::Menu wrapper-->
 	<div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
 		<img src="{{ asset('assets/backend/images/150-2.jpg') }}" alt="user" />
 	</div>
@@ -229,28 +226,13 @@
 			</div>
 		</div>
 		<!--end::Menu item-->
-		<!--begin::Menu separator-->
-		<div class="separator my-2"></div>
-		<!--end::Menu separator-->
-<!--begin::Menu item-->
-<div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start" data-kt-menu-flip="bottom">
-	<a href="#" class="menu-link px-5">
-		<span class="menu-title">My Subscription</span>
-		<span class="menu-arrow"></span>
-	</a>
-</div>
-<!--end::Menu item-->
 					
 	<!--begin::Menu separator-->
 	<div class="separator my-2"></div>
 	<!--end::Menu separator-->
-
-	<!--begin::Menu item-->
 	<div class="menu-item px-5 my-1">
-		<a href="account/settings.html" class="menu-link px-5">Account Settings</a>
+		<a href="#" class="menu-link px-5">Account Settings</a>
 	</div>
-	<!--end::Menu item-->
-	<!--begin::Menu item-->
 	<div class="menu-item px-5">
 		<a href="{{ route('logout') }}" class="menu-link px-5"  onclick="event.preventDefault();
 		document.getElementById('logout-form').submit();">Sign Out</a>
@@ -258,55 +240,37 @@
 			@csrf
 		</form>
 	</div>
-	<!--end::Menu item-->
 </div>
 <!--end::Menu-->
 </div>
 <!--end::User -->
 </div>
-	<!--end::Toolbar wrapper-->
 </div>
-<!--end::Topbar-->
 </div>
-	<!--end::Wrapper-->
 </div>
-	<!--end::Container-->
 </div>
-<!--end::Header-->
-<!--begin::Content-->
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-
-	
 	<div class="post d-flex flex-column-fluid" id="kt_post">
-		<!--begin::Container-->
 		<div id="kt_content_container" class="container">
-			<!--begin::Row-->
 			
 			@yield('content')
 
 		</div>
-		<!--end::Container-->
 	</div>
-	<!--end::Post-->
 </div>
-<!--end::Content-->
 </div>
-	<!--end::Wrapper-->
 </div>
-<!--end::Page-->
 </div>
-<!--end::Root-->
-<!--begin::Activities drawer-->
 <div id="kt_activities" class="bg-white" data-kt-drawer="true" data-kt-drawer-name="activities" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'lg': '900px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_activities_toggle" data-kt-drawer-close="#kt_activities_close">
 <div class="card shadow-none">
-
-		<!--begin::Scrolltop-->
 	<script src="{{ asset('assets/backend/js/plugins.bundle.js') }}"></script>
 	<script src="{{ asset('assets/backend/js/scripts.bundle.js') }}"></script>
+	{{-- <script src="{{ asset('assets/backend/js/bootstrap.min.js') }}"></script> --}}
 	
 	@yield('backend-js')
-	
-	</body>
-	<!--end::Body-->
-	</html>
+
+</div>
+</div>
+</body>
+</html>
 				

@@ -1,5 +1,5 @@
-@extends('layouts.backend')
-@section('title', 'Categories')
+{{-- @extends('layouts.backend')
+@section('title', 'Sub Category')
 
 @section('content')
 
@@ -16,33 +16,30 @@
             </div>
         @endif
 
-    <form id="kt_modal_new_target_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="{{ route('dashboard.category.store') }}" method="POST" enctype="multipart/form-data">
+    <form id="kt_modal_new_target_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="{{ route('dashboard.sub_category_store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-13 text-center">
             <!--begin::Title-->
-            <h1 class="mb-3">Add Category</h1>
+            <h1 class="mb-3">Sub Category</h1>
             <!--end::Title-->
         </div>
         <div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
-            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                <span class="required">Category Name</span>
-            </label>
-            <input type="text" class="form-control form-control-solid" placeholder="Category Name" name="name">
-        @error('name')
-            <div class="text-danger mb-5">{{ $message }}</div>
-        @enderror
-    </div>
+            <label class="d-flex align-items-center fs-6 fw-bold mb-2">Category</label>
+            <select class="form-select form-select-solid select2-hidden-accessible" data-control="select2" name="category_id">
+                <option disabled selected >Select Category</option>
+
+                @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
         <div class="row g-9 mb-8">
             <div class="col-md-12 fv-row fv-plugins-icon-container">
-                <label class="fs-6 fw-bold mb-2">Parent Category</label>
-                <select class="form-select form-select-solid select2-hidden-accessible" data-control="select2" name="parent_id">
-                    <option disabled selected >Select Parent Category</option>
-
-                    @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-
-                </select>
+                <label class="fs-6 fw-bold mb-2">Sub Category Name</label>
+                <input type="text" name="subcategory_name" class="form-control form-control-solid mb-3">
+                @error('subcategory_name')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
         </div>
         <div class="d-flex flex-column mb-8">
@@ -95,14 +92,10 @@
                     <li class="nav-item" role="presentation">
                       <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button">Active</button>
                     </li>
-
-                    {{-- @hasrole(['super-admin|admin']) --}}
-                    <li class="nav-item" role="presentation">
+                     <li class="nav-item" role="presentation">
                       <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button">Trash</button>
                     </li>
-                    {{-- @endhasrole --}}
-                    
-                  </ul>
+                    </ul>
             <div class="tab-content" id="myTabContent">
 
         <div class="tab-pane fade show active" id="home-tab-pane">
@@ -167,9 +160,7 @@
 
    <!-- trash categories start -->
 
-    {{-- @hasrole(['super-admin|admin']) --}}
-    
-    <div class="tab-pane fade" id="profile-tab-pane">
+   <div class="tab-pane fade" id="profile-tab-pane">
         <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
             <!--begin::Table head-->
             <thead>
@@ -219,19 +210,17 @@
 
 </table>       
 </div>
-   {{-- @endhasrole --}}
-
 </div>
-
-  <!--end::Table-->
-    </div>
 </div>
+ </div>
     <!--begin::Body-->
 </div>
 </div>
+
 <!----- end::right column ----->
+
 </div>
 <!----- end::row ----->
 </section>
 
-@endsection
+@endsection --}}

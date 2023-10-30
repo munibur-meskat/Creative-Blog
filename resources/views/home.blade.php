@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <h2>{{ __('Dashboard') }}</h2>
-                    <h3>{{ auth()->user()->roles->pluck('name') }}</h3>
+                    {{-- <h3>{{ auth()->user()->roles->pluck('name') }}</h3> --}}
                 </div>
 
                 <div class="card-body">
@@ -20,7 +20,7 @@
                     {{ __('You are logged in!') }}
                 </div>
 
-                @role('editor')
+                {{-- @role('editor')
                 <div>
                     <h3>Post One - edit - @can('delete')
                         delete
@@ -29,7 +29,7 @@
                         delete
                     @endcan - view</h3>
                 </div>
-                @endrole
+                @endrole --}}
             </div>
         </div>
     </div>

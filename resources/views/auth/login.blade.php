@@ -16,7 +16,7 @@
                     <p class="fw-bold fs-2" style="color: #986923;">Discover Amazing {{ config('app.name') }}
                     <br />with great build tools</p>
                 </div>
-                <div class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-100px min-h-lg-350px" style="background-image: url({{ asset('assets/backend/images/checkout.png') }})"></div>
+                <div class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-100px min-h-lg-350px" style="background-image: url({{ asset('assets/backend/images/coding.png') }})"></div>
             </div>
         </div>
         <div class="d-flex flex-column flex-lg-row-fluid py-10">
@@ -50,6 +50,7 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                               
                             </div>
                             <input class="form-control form-control-lg form-control-solid  @error('password') is-invalid @enderror" type="password" name="password" autocomplete="off" />
                             @error('password')

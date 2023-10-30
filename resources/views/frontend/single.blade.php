@@ -1,12 +1,10 @@
 @extends('layouts.frontend')
-
 @section('title','Home')
 
 @section('content')
 <main>
 
-    <!-- breadcrumb_section - start
-    ================================================== -->
+    <!-- breadcrumb_section - start -->
     <div class="breadcrumb_section">
         <div class="container">
             <ul class="breadcrumb_nav ul_li">
@@ -16,8 +14,7 @@
             </ul>
         </div>
     </div>
-    <!-- breadcrumb_section - end
-    ================================================== -->
+    <!-- breadcrumb_section - end -->
 
     <!-- start blog-single-section -->
     <section class="blog-single-section section_space">
@@ -206,11 +203,9 @@
     </section>
     <!-- end blog-single-section -->
 
-    <!-- blog_section - end
-    ================================================== -->
+    <!-- blog_section - end -->
 
-    <!-- newsletter_section - start
-    ================================================== -->
+    <!-- newsletter_section - start -->
     <section class="newsletter_section">
         <div class="container">
             <div class="row align-items-center">
@@ -229,8 +224,7 @@
             </div>
         </div>
     </section>
-    <!-- newsletter_section - end
-    ================================================== -->
+    <!-- newsletter_section - end -->
 
 </main>
 @endsection

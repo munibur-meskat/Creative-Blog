@@ -5,7 +5,7 @@
 
 <section>
     <div class="row justify-content-center">
-        <div class="col-lg-10 ">
+        <div class="col-lg-9 ">
 
         <div class="bg-white rounded shadow-sm p-10 p-lg-15 ">
             
@@ -40,16 +40,13 @@
                 <label class="fs-6 fw-bold mb-2">Category</label>
                 <select class="form-select form-select-solid select2-hidden-accessible" data-control="select2" name="category[]" multiple>
                     <option disabled>Select Category</option>
-                    
                      @foreach ($categories as $category)
                          <option value="{{ $category->id }}">{{ $category->name }}</option>
                      @endforeach
-
                 </select>
                 @error('category')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                <div class="fv-plugins-message-container invalid-feedback"></div>
             </div> 
             
         </div>
@@ -61,15 +58,13 @@
                     <option disabled selected >Select Status</option>
                     <option value="publish" >Publish</option>
                     <option value="draft" >Draft</option>
-                     
                 </select>
-                <div class="fv-plugins-message-container invalid-feedback"></div>
             </div> 
-            
         </div>
+
         <div class="d-flex flex-column mb-8">
             <label class="fs-6 fw-bold mb-2">Content</label> 
-            <textarea class="form-control form-control-solid" rows="10" name="content" placeholder="Write Content">{{ old('content') }}</textarea>
+            <textarea class="form-control form-control-solid summernote" rows="10" name="content" placeholder="Write Content">{{ old('content') }}</textarea>
             @error('content')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
@@ -104,5 +99,32 @@
 
 </div>
 </section>
+@endsection
 
+@section('backend-css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css">
+
+@endsection
+
+@section('backend-js')
+
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+        $('.summernote').summernote({
+            height: 200,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link']],
+                ['view', ['codeview']]
+            ]
+        });
+        });
+
+  </script>
 @endsection

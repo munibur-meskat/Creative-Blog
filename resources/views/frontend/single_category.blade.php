@@ -5,8 +5,7 @@
 @section('content')
 <main>
 
-    <!-- breadcrumb_section - start
-    ================================================== -->
+    <!-- breadcrumb_section - start -->
     <div class="breadcrumb_section">
         <div class="container">
             <ul class="breadcrumb_nav ul_li">
@@ -15,10 +14,8 @@
             </ul>
         </div>
     </div>
-    <!-- breadcrumb_section - end
-    ================================================== -->
-    <!-- blog_section - start
-    ================================================== -->
+    <!-- breadcrumb_section - end -->
+    <!-- blog_section - start -->
     <section class="blog-pg-section section_space">
         <div class="container">
             <div class="row">
@@ -44,7 +41,7 @@
                                     </ul>
                                 </div>
                                 
-                                <p>{{ Str::limit($post->content, 150, '...') }}</p>
+                                <p>{!! Str::limit($post->content, 150, '...') !!}</p>
                                 
                                 <a href="{{ route('frontend.single.post',[ 'catslug'=> $post->categories->pluck('slug')->first(), 'slug'=>$post->slug ] ) }}" class="read-more">Read More <i class="fal fa-long-arrow-right"></i></a>
                             </div>
@@ -61,6 +58,27 @@
         </div> 
         <!-- end container -->
     </section>
+
+    <!-- newsletter_section - start -->
+    <section class="newsletter_section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col col-lg-6">
+                    <h2 class="newsletter_title text-white">Sign Up for Newsletter </h2>
+                    <p>Get E-mail updates about our latest products and special offers.</p>
+                </div>
+                <div class="col col-lg-6">
+                    <form action="#!">
+                        <div class="newsletter_form">
+                            <input type="email" name="email" placeholder="Enter your email address">
+                            <button type="submit" class="btn btn_secondary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- newsletter_section - end -->
 
 </main>
 @endsection

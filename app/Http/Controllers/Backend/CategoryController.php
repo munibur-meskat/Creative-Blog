@@ -16,10 +16,15 @@ class CategoryController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $categories = Category::withCount('posts')->where('deleted_at', null)->get();
-        $trashCategories = Category::withCount('posts')->onlyTrashed()->get();
+        $categories = Category::where('deleted_at', null)->get();
+        // withCount('posts')->
+        $trashCategories = Category::onlyTrashed()->get();
+        // $trashCategories = Category::withTrashed()->get();
+        // withCount('posts')->
 
         return view('backend.category.index', compact('categories', 'trashCategories'));
+
+        
     }
 
     /**
@@ -45,7 +50,7 @@ class CategoryController extends Controller {
         $request->validate([
             "name"        => "required",
             "parent_id"   => "integer",
-            "description" => "max:255 | required",
+            "description" => "max:255|required",
             "image"       => "image|mimes:jpg,png,jpeg,webp|max:1000|required",
         ]);
 
@@ -53,10 +58,11 @@ class CategoryController extends Controller {
 
             $image_name = Str::slug(strtolower($request->name)). '-' . time() . '.' .
             $category_image->getClientOriginalExtension();
-
+            
             Image::make($category_image)->crop(700,700)->save(public_path('storage/uploads/categories/') . $image_name, 90);
 
             // $resize_image->move(public_path('storage/uploads/categories/'), $image_name);
+            
         }
         
         $insert              = new Category();
@@ -67,8 +73,7 @@ class CategoryController extends Controller {
         $insert->image       = $image_name;
         $insert->save();
 
-        return back()->with('message', "Category Insert Successfull!");
-
+        return back()->with('message', "Category Insert Successfull!");    
     
     }
 
@@ -79,7 +84,8 @@ class CategoryController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category) {
-        return view('backend.category.show', compact('category'));
+        $categories = Category::where('id', 'parent_id')->get();
+        return view('backend.category.show', compact('category','categories'));
     }
 
     /**
@@ -101,8 +107,9 @@ class CategoryController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Category $category) {
-        $category_image = $request->file('image');
 
+        $category_image = $request->file('image');
+        
         $request->validate([
             "name"        => "required",
             "parent_id"   => "integer",
@@ -133,7 +140,7 @@ class CategoryController extends Controller {
         $category->image       = $image_name;
         $category->save();
 
-        return redirect(route('category.index'))->with('message', 'Category Update Successfull!');
+        return redirect(route('dashboard.category.index'))->with('message', 'Category Update Successfull!');
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\CategoryPost;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 
@@ -20,7 +21,7 @@ class PostController extends Controller
     public function index() {
         $posts = Post::with(['categories' => function($q){
             $q ->where('status', true)->select('name');
-        }])->orderBy('id','desc')->get();
+        }])->orderBy('id','desc')->paginate(7);
         return view('backend.post.index', compact('posts'));
     }
 
@@ -46,11 +47,13 @@ class PostController extends Controller
         $request->validate([
                 "title"     => "required",
                 "category"  => "required",
-                "content"   => "max:2000|required",
-                "thumbnail" => "image|mimes:jpg,png,jpeg,webp|max:1000|required",
+                "content"   => "max:5000|required",
+                "thumbnail" => "image|mimes:jpg,png,jpeg,webp|max:2050|required",
             ]);
-            $image_name = null;
-        if($image){
+
+        // $image_name = null;
+
+        if($image->isValid()){
 
             $image_name = Str::slug(strtolower($request->title)) . '.' .
             $image->getClientOriginalExtension();
@@ -91,9 +94,13 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
-    {
-        //
+    public function edit(Post $post) {
+        $posts = Post::with(['categories' => function($q){
+            $q ->where('status', true)->select('name');
+        }])->get();
+
+        $categories = Category::where('deleted_at', null)->get();
+        return view('backend.post.edit', compact('post','posts','categories'));
     }
 
     /**
@@ -103,38 +110,47 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post) {
+    public function update(Request $request, $id) {
 
-        $image = $request->file('thumbnail');
-        $request->validate([
+        // return $request;
+
+        $post = Post::findOrFail($id); // 3
+
+          $request->validate([
                 "title"     => "required",
                 "category"  => "required",
-                "content"   => "max:2000|required",
-                "thumbnail" => "image|mimes:jpg,png,jpeg,webp|max:1000|required",
+                "content"   => "max:5000",
+                "thumbnail" => "image|mimes:jpg,png,jpeg,webp|max:2050",
             ]);
+
+        $image = $request->file('thumbnail');
+
+        if($image && $image->isValid()){
+
+            $photoPath = public_path('storage/uploads/posts/'. $post->thumbnail);
             
-        if($image){
+            if(file_exists($photoPath)){
+                unlink($photoPath);
+            }
 
-            $image_name = Str::slug(strtolower($request->title)) . '.' .
-            $image->getClientOriginalExtension();
+            $photo_name = Str::slug(strtolower($request->title)). '-' . time() . '.' .$image->getClientOriginalExtension();
 
-            Image::make($image)->crop(870,550)->save(public_path('storage/uploads/posts/') . $image_name, 90);
+            Image::make($image)->crop(700,700)->save(public_path('storage/uploads/posts/') . $photo_name, 90);
 
-        }else{
-            $image_name = $post->thumbnail;
+        } else{
+            $photo_name = $post->thumbnail;
         }
 
-        $post->title        = $request->title;
-        $post->slug         = Str::slug($request->title);
-        $post->content      = $request->content;
-        $post->user_id      = Auth::user()->id;
-        $post->status       = $request->status;
-        $post->thumbnail    = $image_name;
+        $post->title     = $request->title;
+        $post->slug      = Str::slug($request->title);
+        $post->content   = $request->content;
+        $post->status    = $request->status;
+        $post->thumbnail = $photo_name;
         $post->save();
 
-        $post ->categories()->sync($request->category);
+        $post->categories()->sync($request->category);
 
-        return redirect(route('post.index'))->with('message', 'Post Update Successfull!');
+        return redirect(route('dashboard.post.index'))->with('message', 'Post Update Successfull!');
     }
 
     /**

@@ -8175,6 +8175,6 @@ readers do not read off random characters that represent icons */
 
 .fa,
 .fas {
-  font-family: 'Font Awesome 5 Pro';
+  /* font-family: 'Font Awesome 5 Pro'; */
   font-weight: 900;
 }

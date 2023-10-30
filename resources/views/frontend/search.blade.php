@@ -5,8 +5,7 @@
 @section('content')
 <main>
 
-    <!-- breadcrumb_section - start
-    ================================================== -->
+    <!-- breadcrumb_section - start -->
     <div class="breadcrumb_section">
         <div class="container">
             <ul class="breadcrumb_nav ul_li">
@@ -15,10 +14,8 @@
             </ul>
         </div>
     </div>
-    <!-- breadcrumb_section - end
-    ================================================== -->
-    <!-- blog_section - start
-    ================================================== -->
+    <!-- breadcrumb_section - end -->
+    <!-- blog_section - start -->
     <section class="blog-pg-section section_space">
         <div class="container">
             <div class="row">
@@ -71,7 +68,6 @@
 
     </section>
 
-    <!-- blog_section - end
-    ================================================== -->
+    <!-- blog_section - end -->
 </main>
 @endsection

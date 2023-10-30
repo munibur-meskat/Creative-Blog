@@ -28,26 +28,26 @@
             </div>
         </div>
 
-        <div class="widget add-widget">
+        <div class="widget add-widget sidebar">
             <h3>Categories</h3>
             <div>
                 <ul>
                     @foreach ($categories as $categorie)
-                        <li><a href="#">{{ $categorie->name }} <span>{{ $categorie->posts_count }}</span></a></li>
+                        <li class=""><a href="#">{{ $categorie->name }} <span>{{ $categorie->posts_count }}</span></a></li>
                     @endforeach
                 </ul>
             </div>
         </div> 
 
-        <div class="widget tag-widget">
+        <div class="widget tag-widget tag">
             <h3>Tags</h3>
             <ul>
-                <li><a href="#">Ecommerce</a></li>
-                <li><a href="#">Fashion</a></li>
-                <li><a href="#">T-shirt</a></li>
-                <li><a href="#">Furnitures</a></li>
-                <li><a href="#">Medical</a></li>
-                <li><a href="#">Baby</a></li>
+                <li><a href="#">National</a></li>
+                <li><a href="{{ route('frontend.single.category.post', $categorie->slug) }}">Cricket</a></li>
+                <li><a href="#">Football</a></li>
+                <li><a href="#">International</a></li>
+                <li><a href="#">Youth</a></li>
+                <li><a href="#">Technology</a></li>
             </ul>
         </div>
     </div>

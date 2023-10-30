@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title', 'Categories')
+@section('title', ' Edit Categories')
 
 @section('content')
 
@@ -41,11 +41,8 @@
                     @foreach ($categories as $singlecategory)
                     <option value="{{ $singlecategory->id }}" {{ ($category->parentCategory->name ?? "") == $singlecategory->name ? "selected" : "" }}>{{ $singlecategory->name }}</option>
                     @endforeach
-                    
                 </select>
-
             </div> 
-            
         </div>
         <div class="d-flex flex-column mb-8">
             <label class="fs-6 fw-bold mb-2">Description</label>
@@ -59,7 +56,7 @@
             <input type="file" class="form-control form-control-solid mb-3" name="image">
             <div class="text-danger">Image size 300*300</div>
             <img class="mt-3" width="150" src="{{ asset('storage/uploads/categories/'.$category->image) }}" alt="{{ $category->name }}">
-    </div>
+        </div>
 
         <div class="text-center">
             <button type="submit" id="kt_modal_new_target_submit" class="btn btn-primary">

@@ -5,29 +5,24 @@
 @section('content')
 <main>
 
-    <!-- breadcrumb_section - start
-    ================================================== -->
-    
-    {{-- <div class="breadcrumb_section">
+    <!-- breadcrumb_section - start -->
+    <div class="breadcrumb_section">
         <div class="container">
             <ul class="breadcrumb_nav ul_li">
-                <li><a href="index-2.html">Home</a></li>
-                <li>Blog Standard</li>
+                <li><a href="{{ route('frontend.index') }}">Home</a></li>
+                <li>All Blog</li>
             </ul>
         </div>
-    </div> --}}
-
-    <!-- breadcrumb_section - end
-    ================================================== -->
-
-    <!-- blog_section - start
-    ================================================== -->
+    </div>
+    <!-- breadcrumb_section - end -->
+    <!-- blog_section - start -->
 
     <!-- start blog-pg-section -->
     <section class="blog-pg-section section_space">
         <div class="container">
             <div class="row">
-                <div class="col col-lg-8 content">
+                <!-- Left Sides Start -->
+                <div class="col col-lg-8 col-md-12 content">
                     <div class="blog-content">
                         @foreach ($posts as $post)
 
@@ -48,7 +43,7 @@
                                     </ul>
                                 </div>
                                 
-                                <p>{{ Str::limit($post->content, 150, '...') }}</p>
+                                <p>{!! Str::limit($post->content, 200, '...') !!}</p>
                                 
                                 <a href="{{ route('frontend.single.post',[ 'catslug'=> $post->categories->pluck('slug')->first(), 'slug'=>$post->slug ] ) }}" class="read-more">Read More <i class="fal fa-long-arrow-right"></i></a>
                             </div>
@@ -75,21 +70,24 @@
                                 </li>
                             </ul>
                         </div>
+
                     </div>
                 </div>
-                
-                {{-- Left Sides End --}}
+                <!-- Left Sides End -->
+                <!-- Right Sides Start -->
+
                 @include('frontend.sidebar')
+                
+                <!-- Right Sides End -->
             </div>
-        </div> <!-- end container -->
+        </div>
+         <!-- end container -->
     </section>
     <!-- end blog-pg-section --> 
 
-    <!-- blog_section - end
-    ================================================== -->
+    <!-- blog_section - end -->
 
-    <!-- newsletter_section - start
-    ================================================== -->
+    <!-- newsletter_section - start -->
     <section class="newsletter_section">
         <div class="container">
             <div class="row align-items-center">
@@ -108,8 +106,7 @@
             </div>
         </div>
     </section>
-    <!-- newsletter_section - end
-    ================================================== -->
+    <!-- newsletter_section - end -->
 
 </main>
 @endsection

@@ -11,14 +11,15 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up(){
+    public function up() {
         Schema::create('category_post', function (Blueprint $table) {
             $table->id();
             $table->foreignId('post_id')->constrained();
             $table->foreignId('category_id')->constrained();
+            $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

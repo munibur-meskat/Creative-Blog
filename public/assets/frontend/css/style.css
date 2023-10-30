@@ -185,7 +185,26 @@ a:active, a:focus, a:hover, a:visited {
   outline: 0;
   text-decoration: none;
 }
-
+.sidebar ul li a{
+  color: #000;
+  font-size: 17px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+.sidebar ul li a:hover{
+  color: #fd7e14;
+  transition: 0.5s;
+}
+.tag ul li a{
+  color: #000;
+  font-size: 17px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+.tag ul li a:hover{
+  color: #fd7e14;
+  transition: 0.5s;
+}
 button {
   padding: 0px;
   border: none;
@@ -219,10 +238,8 @@ hr {
   visibility: hidden;
 }
 
-/* 1.2 Template Global Reset - end
-================================================== */
-/* 2.1 - Back To Top Button - start
-================================================== */
+/* 1.2 Template Global Reset - end */
+/* 2.1 - Back To Top Button - start */
 .backtotop {
   right: 25px;
   z-index: 999;
@@ -252,10 +269,9 @@ hr {
           box-shadow: 0px 7px 10px 1.75px rgba(0, 0, 0, 0.07);
 }
 
-/* 2.1 - Back To Top Button - end
-================================================== */
-/* 2.2 - Default Color - start
-================================================== */
+/* 2.1 - Back To Top Button - end */
+
+/* 2.2 - Default Color - start */
 .bg_default_red {
   background-color: #cd1212;
 }
@@ -280,10 +296,10 @@ hr {
   background-color: #e23e1d;
 }
 
-/* 2.2 - Default Color - end
-================================================== */
-/* 2.3 - Default Space - start
-================================================== */
+/* 2.2 - Default Color - end */
+
+/* 2.3 - Default Space - start */
+
 /* container width - start */
 .container {
   max-width: 1200px;
@@ -310,10 +326,9 @@ hr {
 }
 
 /* section top & bottom space - end */
-/* 2.3 - Default Space - end
-================================================== */
-/* 2.4 - Button Style - start
-================================================== */
+/* 2.3 - Default Space - end */
+
+/* 2.4 - Button Style - start */
 .load_more {
   margin-top: 60px;
 }
@@ -405,10 +420,9 @@ hr {
   background-color: #252525;
 }
 
-/* 2.4 - Button Style - end
-================================================== */
-/* 2.5 - Order & Unorder List - start
-================================================== */
+/* 2.4 - Button Style - end */
+
+/* 2.5 - Order & Unorder List - start */
 .ul_li,
 .ul_li_right,
 .ul_li_center {
@@ -429,6 +443,10 @@ hr {
   float: left;
   list-style: none;
   display: inline-block;
+} 
+.ul_li li{
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .ul_li {
@@ -459,10 +477,9 @@ hr {
   list-style: none;
 }
 
-/* 2.5 - Order & Unorder List - end
-================================================== */
-/* 2.6 - Section Title - start
-================================================== */
+/* 2.5 - Order & Unorder List - end */
+
+/* 2.6 - Section Title - start */
 .section_title {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -510,10 +527,9 @@ hr {
   padding-left: 5px;
 }
 
-/* 2.6 - Section Title - end
-================================================== */
-/* 2.7 - Carousel Settings - start
-================================================== */
+/* 2.6 - Section Title - end */
+
+/* 2.7 - Carousel Settings - start */
 .slick-dots li {
   display: inline-block;
 }
@@ -575,10 +591,9 @@ hr {
   position: absolute;
 }
 
-/* 2.7 - Carousel Settings - end
-================================================== */
-/* 2.8 - Preloader Style - start
-================================================== */
+/* 2.7 - Carousel Settings - end */
+
+/* 2.8 - Preloader Style - start */
 #preloader {
   top: 0;
   left: 0;
@@ -590,10 +605,9 @@ hr {
   background: #ffffff url("../images/preloader.svg") no-repeat center center;
 }
 
-/* 2.8 - Preloader Style - end
-================================================== */
-/* 2.9 - Form Style - start
-================================================== */
+/* 2.8 - Preloader Style - end */
+
+/* 2.9 - Form Style - start */
 .form_item {
   position: relative;
   margin-bottom: 30px;
@@ -805,10 +819,8 @@ hr {
   transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* 2.9 - Form Style - end
-================================================== */
-/* 2.10 - Social links Style - start
-================================================== */
+/* 2.9 - Form Style - end */
+/* 2.10 - Social links Style - start */
 .social_primary li:not(:last-child) {
   margin-right: 20px;
 }
@@ -915,10 +927,8 @@ hr {
   background-image: linear-gradient(0deg, #fe6d4c, #fe6d4c);
 }
 
-/* 2.10 - Social links Style - end
-================================================== */
-/* 2.11 - Rating Star - start
-================================================== */
+/* 2.10 - Social links Style - end */
+/* 2.11 - Rating Star - start */
 .rating_star li {
   color: #71737a;
   font-size: 12px;
@@ -930,10 +940,8 @@ hr {
   color: #e23e1d;
 }
 
-/* 2.11 - Rating Star - end
-================================================== */
-/* 2.12 - Pagination Nav - start
-================================================== */
+/* 2.11 - Rating Star - end */
+/* 2.12 - Pagination Nav - start */
 .pagination_wrap {
   padding-top: 20px;
 }
@@ -977,10 +985,8 @@ hr {
   background-color: #f02757;
 }
 
-/* 2.12 - Pagination Nav - end
-================================================== */
-/* 2.13 - Countdown Style - start
-================================================== */
+/* 2.12 - Pagination Nav - end */
+/* 2.13 - Countdown Style - start */
 .countdown_timer > li {
   position: relative;
 }
@@ -1022,10 +1028,8 @@ hr {
     margin-bottom: 8px;
   }
 }
-/* 2.13 - Countdown Style - end
-================================================== */
-/* 2.14 - Post Meta - start
-================================================== */
+/* 2.13 - Countdown Style - end */
+/* 2.14 - Post Meta - start */
 .post_meta > li {
   position: relative;
   margin-bottom: 5px;
@@ -1069,10 +1073,8 @@ hr {
   display: none;
 }
 
-/* 2.14 - Post Meta - end
-================================================== */
-/* 2.15 - Pricing Range - start
-================================================== */
+/* 2.14 - Post Meta - end */
+/* 2.15 - Pricing Range - start */
 .price-range-area {
   padding-top: 7px;
 }
@@ -1138,10 +1140,8 @@ hr {
           box-shadow: 0px 10px 30px 0px rgba(135, 153, 163, 0.5);
 }
 
-/* 2.15 - Pricing Range - end
-================================================== */
-/* 3.1 - Header Section - start
-================================================== */
+/* 2.15 - Pricing Range - end */
+/* 3.1 - Header Section - start */
 /* header style - start */
 .header_section {
   z-index: 99;
@@ -1947,10 +1947,8 @@ hr {
   }
 }
 
-/* 3.1 - Header Section - end
-================================================== */
-/* 3.2 - Footer Section - start
-================================================== */
+/* 3.1 - Header Section - end */
+/* 3.2 - Footer Section - start */
 .footer_section {
   color: #636363;
   padding: 90px 0 0px;
@@ -1982,12 +1980,18 @@ hr {
 .footer_about p {
   margin-bottom: 30px;
 }
-
+.footer_about .ul_li a i{
+  color: #585252;
+}
+.footer_about .ul_li a i:hover{
+  color: #e1e4e0;
+  transition: 0.7s;
+}
 .footer_useful_links li:not(:last-child) {
   margin-bottom: 10px;
 }
 .footer_useful_links a {
-  color: #636363;
+  color: #302d2d;
 }
 .footer_useful_links a:hover {
   color: #f02757;
@@ -2055,6 +2059,8 @@ hr {
 .copyright_text {
   color: #282828;
   margin-bottom: 0;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 .copyright_text a {
   color: #f02757;
@@ -2096,10 +2102,8 @@ hr {
 }
 
 /* footer 2 - end */
-/* 3.2 - Footer Section - end
-================================================== */
-/* 3.3 - Breadcrumb Section - start
-================================================== */
+/* 3.2 - Footer Section - end */
+/* 3.3 - Breadcrumb Section - start */
 .breadcrumb_section {
   padding: 28.5px 0;
   background-color: #f9f9f9;
@@ -2133,10 +2137,8 @@ hr {
   color: #f02757;
 }
 
-/* 3.3 - Breadcrumb Section - end
-================================================== */
-/* 3.4 - Sidebar Section - start
-================================================== */
+/* 3.3 - Breadcrumb Section - end*/
+/* 3.4 - Sidebar Section - start */
 .sidebar_section {
   padding-left: 70px;
 }
@@ -2409,10 +2411,8 @@ hr {
 }
 
 /* blog sidebar - end */
-/* 3.4 - Sidebar Section - end
-================================================== */
-/* 3.5 Slider Section - start
-================================================== */
+/* 3.4 - Sidebar Section - end */
+/* 3.5 Slider Section - start */
 /* main slider - start */
 .main_slider {
   position: relative;
@@ -2595,10 +2595,8 @@ hr {
   color: #052840;
 }
 
-/* 3.5 Slider Section - end
-================================================== */
-/* 3.6 - Category Style - start
-================================================== */
+/* 3.5 Slider Section - end */
+/* 3.6 - Category Style - start */
 .category_boxed {
   background-color: #fff;
   z-index: 1;
@@ -2682,10 +2680,8 @@ hr {
   margin: 0 -12px;
 }
 
-/* 3.6 - Category Style - end
-================================================== */
-/* 3.7 - Deal Products - start
-================================================== */
+/* 3.6 - Category Style - end */
+/* 3.7 - Deal Products - start */
 /* deals product layout 1 - start */
 .deals_product_layout1 {
   padding: 10px;
@@ -2856,10 +2852,8 @@ hr {
 }
 
 /* deals product layout 2 - end */
-/* 3.7 - Deal Products - end
-================================================== */
-/* 3.8 - Banner Style - start
-================================================== */
+/* 3.7 - Deal Products - end */
+/* 3.8 - Banner Style - start */
 /* promotion banner wrap - start */
 .promotion_banner_wrap {
   margin-top: -30px;
@@ -3099,10 +3093,8 @@ hr {
 }
 
 /* promotion banner 3 - end */
-/* 3.8 - Banner Style - end
-================================================== */
-/* 3.9 - Policy Section - start
-================================================== */
+/* 3.8 - Banner Style - end */
+/* 3.9 - Policy Section - start */
 .policy_section {
   margin-top: 50px;
 }
@@ -3148,10 +3140,8 @@ hr {
   margin-bottom: 0;
 }
 
-/* 3.9 - Policy Section - end
-================================================== */
-/* 3.10 - About Page - start
-================================================== */
+/* 3.9 - Policy Section - end */
+/* 3.10 - About Page - start */
 .about_content {
   padding-right: 40px;
 }
@@ -3199,10 +3189,8 @@ hr {
   font-size: 14px;
 }
 
-/* 3.10 - About Page - end
-================================================== */
-/* 3.11 - Service Section - start
-================================================== */
+/* 3.10 - About Page - end */
+/* 3.11 - Service Section - start */
 .service_section.bg_gray {
   background-color: #fbfbfb;
 }
@@ -3248,10 +3236,8 @@ hr {
   margin-bottom: 0;
 }
 
-/* 3.11 - Service Section - end
-================================================== */
-/* 3.12 - Team Page - start
-================================================== */
+/* 3.11 - Service Section - en */
+/* 3.12 - Team Page - star */
 .team_section_title {
   padding-right: 40px;
 }
@@ -3282,10 +3268,8 @@ hr {
   line-height: 1;
 }
 
-/* 3.12 - Team Page - end
-================================================== */
-/* 3.13 - Newsletter Section - start
-================================================== */
+/* 3.12 - Team Page - end */
+/* 3.13 - Newsletter Section - start */
 .newsletter_section {
   padding: 65px 0;
   background-color: #051d43;
@@ -3339,10 +3323,8 @@ hr {
   border-radius: 0 4px 4px 0;
 }
 
-/* 3.13 - Newsletter Section - end
-================================================== */
-/* 3.14 - Brand Section - start
-================================================== */
+/* 3.13 - Newsletter Section - end */
+/* 3.14 - Brand Section - start */
 .brand_carousel {
   padding: 50px 0;
   background-color: #f9f9f9;
@@ -3384,10 +3366,8 @@ hr {
           filter: blur(0px);
 }
 
-/* 3.14 - Brand Section - end
-================================================== */
-/* 3.15 - Shop Page - start
-================================================== */
+/* 3.14 - Brand Section - end */
+/* 3.15 - Shop Page - start */
 /* product quick view - start */
 .modal-dialog {
   max-width: 1200px;
@@ -4073,9 +4053,7 @@ hr {
   text-decoration: underline;
 }
 
-/*----------------------------------------------------------------
-	#shop-product-area
-------------------------------------------------------------------*/
+/*----- #shop-product-area----*/
 .shop-product-area .product-area {
   margin: 0 -15px;
 }
@@ -6585,14 +6563,17 @@ hr {
 .blog-sidebar .tag-widget ul li a, .blog-sidebar-s2 .tag-widget ul li a {
   background-color: #EFEFEF;
   font-size: 14px;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
   display: inline-block;
   padding: 5px 14px;
   color: #052840;
   border-radius: 0;
 }
 .blog-sidebar .tag-widget ul li a:hover, .blog-sidebar-s2 .tag-widget ul li a:hover {
-  background: #000;
+  background: #fd7e14;
   color: #fff;
+  transition: 0.5s;
 }
 .blog-sidebar .add-widget, .blog-sidebar-s2 .add-widget {
   max-width: 333px;
